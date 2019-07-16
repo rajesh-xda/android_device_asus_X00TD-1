@@ -209,6 +209,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=pn8x \
     ro.nfc.port=I2C
 
+# OMX
+# Rank OMX SW codecs lower than OMX HW codecs
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
+    
 # QCOM cabl
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.cabl=2
