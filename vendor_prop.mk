@@ -258,6 +258,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=11 \
     ro.ril.ecclist=112,911 \
     ro.telephony.default_network=20,20 \
+    persist.vendor.radio.procedure_bytes=SKIP \
     telephony.lteOnCdmaDevice=1
 
 # RmNet Data
