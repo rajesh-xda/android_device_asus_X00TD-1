@@ -420,10 +420,6 @@ PRODUCT_COPY_FILES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-# Soong
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
@@ -441,6 +437,10 @@ PRODUCT_PACKAGES += \
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
 
 # Thermal
 PRODUCT_PACKAGES += \
