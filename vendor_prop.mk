@@ -227,6 +227,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.core_ctl_max_cpu=4 \
     ro.vendor.qti.sys.fw.bg_apps_limit=60
 
+# QC framework value-adds
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.va_aosp.support=1
+
+PRODUCT_ODM_PROPERTIES += \
+    ro.vendor.qti.va_odm.support=1
+    
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.dbg.volte_avail_ovr=1 \
