@@ -250,6 +250,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.qti.telephony.vt_cam_interface=1 \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     ril.subscription.types=NV,RUIM \
     vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.carrier=unknown \
