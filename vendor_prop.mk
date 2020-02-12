@@ -161,7 +161,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     vendor.gralloc.enable_fb_ubwc=1 \
     debug.hwui.use_buffer_age=false \
-    debug.sf.enable_gl_backpressure=1 \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     ro.opengles.version=196610 \
@@ -292,10 +291,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.set_idle_timer_ms=9000
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_backpressure=1 \
     debug.sf.early_phase_offset_ns=1500000 \
     debug.sf.early_app_phase_offset_ns=1500000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.enable_gl_backpressure=1
 
 # System prop for UBWC
 PRODUCT_PROPERTY_OVERRIDES += \
