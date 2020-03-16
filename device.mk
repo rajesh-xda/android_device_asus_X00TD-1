@@ -355,7 +355,7 @@ PRODUCT_COPY_FILES += \
 
 # Pocket Mode
 PRODUCT_PACKAGES += \
-    MotoPocketMode
+    ZenfonePocketMode
     
 # Ramdisk
 PRODUCT_PACKAGES += \
