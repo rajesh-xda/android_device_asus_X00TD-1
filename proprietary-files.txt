@@ -1476,7 +1476,7 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|9cf774301dfb59173cc2a6871ff851ea6b546f39
 vendor/lib64/vendor.qti.hardware.soter@1.0.so|5815859dc07d3181901596d06612b379e86fe6fd
 
-# Thermal - from Nokia DRG_sprout 10 QKQ1.190828.002 00WW_4_040 release-keys
+# Thermal - WW_Phone-17.2017.1911.407-20191223
 vendor/bin/thermal-engine|2734cd5aa3440b753cf62bf97875dea04119f1dc
 -vendor/lib/libthermalclient.so|c3aecc7610e8f5775a6f6af2ff7790bef74380a1
 -vendor/lib64/libthermalclient.so|84072e150722cc668320f07a75cb8695ce1a79b0
