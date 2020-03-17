@@ -1,2 +1,5 @@
 allow system_app sysfs_screen_off_gestures:file write;
 allow system_app sysfs_fpc_proximity:file { rw_file_perms };
+
+allow system_app storaged:binder call;
+allow system_app wificond:binder call;
