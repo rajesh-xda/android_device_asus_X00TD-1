@@ -134,7 +134,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.dpm.feature=1
+    persist.vendor.dpm.feature=1 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # DRM
@@ -147,6 +147,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # FM
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hw.fm.init=0 \
     vendor.fm.a2dp.conc.disabled=false
 
 # FRP
@@ -156,16 +157,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
-    debug.sf.early_phase_offset_ns=5000000 \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
+    debug.gralloc.enable_fb_ubwc=1 \
     vendor.gralloc.enable_fb_ubwc=1 \
     debug.hwui.use_buffer_age=false \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     ro.opengles.version=196610 \
     sdm.debug.rotator_downscale=1 \
-    vendor.display.enable_default_color_mode=1
+    vendor.display.enable_default_color_mode=1 \
+    vendor.display.disable_partial_split=1 \
+    vendor.display.disable_rotator_downscale=1 \
+    vendor.display.perf_hint_window=50
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -175,13 +179,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true \
     media.stagefright.enable-scan=true \
-    mm.enable.smoothstreaming=true \
+    mm.enable.sec.smoothstreaming=true \
     vendor.mm.enable.qcom_parser=13631487 \
     mmp.enable.3g2=true \
     persist.mm.enable.prefetch=true \
     vendor.vidc.enc.disable_bframes=1 \
-    vendor.vidc.dec.enable.downscalar=1 \
-    vendor.vidc.enc.disable.pq=false \
+    vendor.vidc.dec.enable.downscalar=0 \
+    vendor.vidc.enc.disable.pq=true \
     vidc.enc.dcvs.extra-buff-count=2 \
     vidc.enc.target_support_bframe=1
 
@@ -216,7 +220,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 # QCOM cabl
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.display.cabl=2
+    ro.vendor.display.cabl=2 \
+    ro.qualcomm.cabl=2
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -232,7 +237,13 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
-    
+ 
+ # Play store
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase.ms=android-asus-tpin \
+    ro.com.google.rlzbrandcode=ASUP \
+    ro.com.google.rlz_ap_whitelist=y0,y5,y6,y7,y9
+       
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.dbg.volte_avail_ovr=1 \
@@ -256,14 +267,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     ro.config.vc_call_vol_steps=11 \
     ro.ril.ecclist=112,911 \
-    ro.telephony.default_network=20,20 \
+    ro.telephony.default_network=22,20 \
     ro.telephony.use_old_mnc_mcc_format=true \
+    ro.telephony.iwlan_operation_mode=legacy \
     persist.vendor.radio.procedure_bytes=SKIP \
+    persist.vendor.radio.aosp_usr_pref_sel=true \
+    persist.vendor.radio.flexmap_type=none \
     telephony.lteOnCdmaDevice=1
 
 # RmNet Data
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.dev_name=rmnet_usb0
+    persist.data.df.dev_name=rmnet_usb0 \
     persist.vendor.radio.add_power_save=1
 
 # Sensor
