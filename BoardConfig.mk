@@ -188,7 +188,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-06-05
+VENDOR_SECURITY_PATCH := 2020-02-05
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
