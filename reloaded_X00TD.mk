@@ -22,8 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Reloaded-CAF stuff
+$(call inherit-product, vendor/reloaded/common.mk)
 
 # Inherit from X00TD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -31,7 +31,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00TD
 PRODUCT_MANUFACTURER := asus
-PRODUCT_NAME := lineage_X00TD
+PRODUCT_NAME := reloaded_X00TD
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 

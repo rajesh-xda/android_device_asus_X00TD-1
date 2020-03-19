@@ -15,4 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_X00TD.mk
+    $(LOCAL_DIR)/reloaded_X00TD.mk
+
+COMMON_LUNCH_CHOICES := \
+    reloaded_X00TD-user \
+    reloaded_X00TD-userdebug
