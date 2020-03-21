@@ -156,10 +156,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     ro.opengles.version=196610 \
-    sdm.debug.rotator_downscale=1 \
-    vendor.display.enable_default_color_mode=1 \
+    vendor.display.enable_default_color_mode=0 \
     vendor.display.disable_partial_split=1 \
-    vendor.display.disable_rotator_downscale=1 \
     vendor.display.perf_hint_window=50
 
 # Media
@@ -211,8 +209,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 # QCOM cabl
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.display.cabl=2 \
-    ro.qualcomm.cabl=2
+    ro.vendor.display.cabl=0 \
+    ro.qualcomm.cabl=0
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \
