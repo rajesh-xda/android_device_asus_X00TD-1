@@ -32,6 +32,7 @@ on init
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
     write /dev/stune/background/schedtune.colocate 0
+    write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
 
@@ -78,7 +79,7 @@ on boot
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
-    write /dev/cpuset/restricted/cpus 0-7
+
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
@@ -124,22 +125,26 @@ on boot
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
     chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_name
     chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable
     chown system system /sys/class/sensors/stk3x1x-proximity/sensors_delay
     chown system system /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
     chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
     chown system system /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_name
 
     chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable
     chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_delay
     chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_calibrate
     chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
     chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_name
     chown system system /sys/class/sensors/stk3x1x-light/sensors_enable
     chown system system /sys/class/sensors/stk3x1x-light/sensors_delay
     chown system system /sys/class/sensors/stk3x1x-light/sensors_calibrate
     chown system system /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
     chown system system /sys/class/sensors/stk3x1x-light/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_name
 #Huaqin add for sensors permission-ZQL1650-141 by chenyijun5 at 2018/2/1 end
 
 #Huaqin add or ZQL1650-1072 by zhuqiang at 2018/04/23 start
@@ -212,20 +217,6 @@ service vendor.cdsprpcd /vendor/bin/cdsprpcd
    group system
    disabled
 
-service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
-    class main
-    user system
-    socket ims_qmid stream 0660 system radio
-    group radio log diag
-
-# imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
-    class main
-    user system
-    socket ims_datad stream 0660 system radio
-    group system wifi radio inet log diag
-    disabled
-
 service energy-awareness /vendor/bin/energy-awareness
     class main
     user system
@@ -233,10 +224,7 @@ service energy-awareness /vendor/bin/energy-awareness
     oneshot
 
 service vendor.pd_mapper /vendor/bin/pd-mapper
-     class core
-
-on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start vendor.imsdatadaemon
+    class core
 
 on property:vold.decrypt=trigger_restart_framework
    start cnss_diag
@@ -246,19 +234,6 @@ service cnss_diag /vendor/bin/cnss_diag -q -f -t HELIUM
    user system
    group system wifi inet sdcard_rw media_rw diag
    oneshot
-
-service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
-   class main
-   user system
-   group radio diag inet log
-
-service vendor.imsrcsservice /vendor/bin/imsrcsd
-   class main
-   user system
-   group radio diag inet log wakelock
-
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    restart vendor.ims_rtp_daemon
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
